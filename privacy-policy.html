@@ -3,67 +3,184 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy - Greeklish to Greek Extension</title>
+  <title>Privacy Policy - Greeklish to Greek</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #1a1a1a;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: #1a1a2e;
+      line-height: 1.7;
+      background: #f5f5ff;
+      min-height: 100vh;
     }
-    h1 { font-size: 24px; margin-bottom: 8px; }
-    h2 { font-size: 18px; margin-top: 28px; }
-    .updated { font-size: 14px; color: #666; margin-bottom: 32px; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 6px; }
-    a { color: #6366f1; }
+    header {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      padding: 48px 20px 40px;
+      text-align: center;
+      color: #fff;
+    }
+    header .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      text-decoration: none;
+      color: #fff;
+    }
+    header .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    header .logo-text {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+    main {
+      max-width: 720px;
+      margin: -24px auto 0;
+      padding: 0 20px 60px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 36px;
+      box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4f46e5;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #ede9fe;
+    }
+    h2:first-child { margin-top: 0; }
+    p { margin-bottom: 12px; font-size: 15px; color: #374151; }
+    ul {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 12px;
+    }
+    li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: #374151;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background: #6366f1;
+      border-radius: 50%;
+    }
+    strong { color: #1a1a2e; }
+    a { color: #6366f1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 15px;
+      color: #166534;
+    }
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    footer a { color: #6366f1; }
+    @media (max-width: 600px) {
+      header { padding: 32px 16px 28px; }
+      header h1 { font-size: 24px; }
+      .card { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p class="updated">Greeklish to Greek Chrome Extension &mdash; Last updated: March 3, 2026</p>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">&alpha;&beta;</div>
+      <span class="logo-text">Greeklish to Greek</span>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: March 3, 2026</p>
+  </header>
 
-  <h2>Overview</h2>
-  <p>Greeklish to Greek is a browser extension that converts Greek text written in Latin characters (Greeklish) to proper Greek. Your privacy is important to us. This policy explains what data the extension accesses and how it is handled.</p>
+  <main>
+    <div class="card">
 
-  <h2>Data Collection</h2>
-  <p>This extension does <strong>not</strong> collect, store, or transmit any personal data. Specifically:</p>
-  <ul>
-    <li>No analytics or tracking of any kind</li>
-    <li>No cookies</li>
-    <li>No user accounts</li>
-    <li>No browsing history access</li>
-    <li>No personal information collection</li>
-  </ul>
+      <h2>Overview</h2>
+      <p>Greeklish to Greek is a Chrome extension that converts Greek text written in Latin characters (Greeklish) to proper Greek. This policy explains what data the extension accesses and how it is handled.</p>
 
-  <h2>Data Processing</h2>
-  <p>When you trigger a translation, the following occurs:</p>
-  <ul>
-    <li><strong>Text you select or type</strong> in a text field is sent to the Anthropic API (api.anthropic.com) for translation. This text is sent only when you explicitly trigger the translation via a keyboard shortcut.</li>
-    <li><strong>Your Anthropic API key</strong> is stored locally in Chrome's extension storage on your device. It is sent to api.anthropic.com solely for authentication when making translation requests. It is never sent anywhere else.</li>
-  </ul>
+      <div class="highlight">
+        This extension does <strong>not</strong> collect, store, or transmit any personal data. No analytics, no cookies, no tracking.
+      </div>
 
-  <h2>Third-Party Services</h2>
-  <p>This extension uses the <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic API</a> to perform translations. Text you translate is processed by Anthropic according to their privacy policy and API terms of service. We encourage you to review Anthropic's privacy practices.</p>
+      <h2>Data Collection</h2>
+      <ul>
+        <li>No analytics or tracking of any kind</li>
+        <li>No cookies or user accounts</li>
+        <li>No browsing history access</li>
+        <li>No personal information collection</li>
+      </ul>
 
-  <h2>Permissions</h2>
-  <p>The extension requests the following browser permissions:</p>
-  <ul>
-    <li><strong>Storage</strong> &mdash; To save your API key and keyboard shortcut preferences locally</li>
-    <li><strong>Clipboard Write</strong> &mdash; To copy translated text to your clipboard as a fallback when direct text insertion is not possible</li>
-    <li><strong>Offscreen</strong> &mdash; Required by Chrome Manifest V3 to access the clipboard from the background service worker</li>
-    <li><strong>All URLs (host permission)</strong> &mdash; The content script runs on all pages so you can translate text in any text field on any website. No page content is read or collected beyond the text you explicitly select for translation.</li>
-  </ul>
+      <h2>Data Processing</h2>
+      <p>When you trigger a translation, the following occurs:</p>
+      <ul>
+        <li><strong>Text you select or type</strong> in a text field is sent to the Anthropic API (api.anthropic.com) for translation. This happens only when you explicitly press the keyboard shortcut.</li>
+        <li><strong>Your Anthropic API key</strong> is stored locally in Chrome's extension storage on your device. It is sent to api.anthropic.com solely for authentication. It is never sent anywhere else.</li>
+      </ul>
 
-  <h2>Data Retention</h2>
-  <p>No data is retained by this extension. Translated text exists only in your browser. Your API key remains in local Chrome storage until you remove it or uninstall the extension.</p>
+      <h2>Third-Party Services</h2>
+      <p>This extension uses the <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic API</a> to perform translations. Text you translate is processed by Anthropic according to their privacy policy and API terms of service.</p>
 
-  <h2>Changes to This Policy</h2>
-  <p>If this policy is updated, the changes will be reflected on this page with an updated date.</p>
+      <h2>Permissions</h2>
+      <ul>
+        <li><strong>Storage</strong> &mdash; Saves your API key and shortcut preferences locally</li>
+        <li><strong>Clipboard Write</strong> &mdash; Copies translated text to clipboard as a fallback when direct insertion is not possible</li>
+        <li><strong>Offscreen</strong> &mdash; Required by Chrome Manifest V3 for clipboard access from the service worker</li>
+        <li><strong>All URLs</strong> &mdash; The content script runs on all pages so translation works in any text field. No page content is read beyond the text you select for translation.</li>
+      </ul>
 
-  <h2>Contact</h2>
-  <p>If you have questions about this privacy policy, please open an issue on the extension's GitHub repository.</p>
+      <h2>Data Retention</h2>
+      <p>No data is retained by this extension. Translated text exists only in your browser. Your API key remains in local Chrome storage until you remove it or uninstall the extension.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>If this policy is updated, the changes will be reflected on this page with an updated date.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, please open an issue on the <a href="https://github.com/DimitrisTzimikas/greeklish-to-greek-extension" target="_blank" rel="noopener">GitHub repository</a>.</p>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Greeklish to Greek &middot; <a href="https://github.com/DimitrisTzimikas/greeklish-to-greek-extension">GitHub</a>
+  </footer>
 </body>
 </html>
