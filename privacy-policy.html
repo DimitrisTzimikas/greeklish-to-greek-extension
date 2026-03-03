@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Greeklish to Greek Extension</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    h2 { font-size: 18px; margin-top: 28px; }
+    .updated { font-size: 14px; color: #666; margin-bottom: 32px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    a { color: #6366f1; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Greeklish to Greek Chrome Extension &mdash; Last updated: March 3, 2026</p>
+
+  <h2>Overview</h2>
+  <p>Greeklish to Greek is a browser extension that converts Greek text written in Latin characters (Greeklish) to proper Greek. Your privacy is important to us. This policy explains what data the extension accesses and how it is handled.</p>
+
+  <h2>Data Collection</h2>
+  <p>This extension does <strong>not</strong> collect, store, or transmit any personal data. Specifically:</p>
+  <ul>
+    <li>No analytics or tracking of any kind</li>
+    <li>No cookies</li>
+    <li>No user accounts</li>
+    <li>No browsing history access</li>
+    <li>No personal information collection</li>
+  </ul>
+
+  <h2>Data Processing</h2>
+  <p>When you trigger a translation, the following occurs:</p>
+  <ul>
+    <li><strong>Text you select or type</strong> in a text field is sent to the Anthropic API (api.anthropic.com) for translation. This text is sent only when you explicitly trigger the translation via a keyboard shortcut.</li>
+    <li><strong>Your Anthropic API key</strong> is stored locally in Chrome's extension storage on your device. It is sent to api.anthropic.com solely for authentication when making translation requests. It is never sent anywhere else.</li>
+  </ul>
+
+  <h2>Third-Party Services</h2>
+  <p>This extension uses the <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic API</a> to perform translations. Text you translate is processed by Anthropic according to their privacy policy and API terms of service. We encourage you to review Anthropic's privacy practices.</p>
+
+  <h2>Permissions</h2>
+  <p>The extension requests the following browser permissions:</p>
+  <ul>
+    <li><strong>Storage</strong> &mdash; To save your API key and keyboard shortcut preferences locally</li>
+    <li><strong>Clipboard Write</strong> &mdash; To copy translated text to your clipboard as a fallback when direct text insertion is not possible</li>
+    <li><strong>Offscreen</strong> &mdash; Required by Chrome Manifest V3 to access the clipboard from the background service worker</li>
+    <li><strong>All URLs (host permission)</strong> &mdash; The content script runs on all pages so you can translate text in any text field on any website. No page content is read or collected beyond the text you explicitly select for translation.</li>
+  </ul>
+
+  <h2>Data Retention</h2>
+  <p>No data is retained by this extension. Translated text exists only in your browser. Your API key remains in local Chrome storage until you remove it or uninstall the extension.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy is updated, the changes will be reflected on this page with an updated date.</p>
+
+  <h2>Contact</h2>
+  <p>If you have questions about this privacy policy, please open an issue on the extension's GitHub repository.</p>
+</body>
+</html>

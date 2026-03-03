@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Greeklish to Greek",
+  "version": "1.0",
+  "description": "Translates Greeklish (Greek written in Latin characters) to proper Greek using Claude AI",
+  "permissions": ["storage", "clipboardWrite", "offscreen"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "commands": {
+    "translate-greeklish": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+G",
+        "mac": "MacCtrl+Shift+G"
+      },
+      "description": "Translate Greeklish to Greek"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

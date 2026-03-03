@@ -1,0 +1,30 @@
+Greeklish to Greek
+
+Instantly convert Greeklish (Greek written with Latin characters) to proper Greek text, right where you type.
+
+Stop switching keyboard layouts. Type in Greeklish and let AI do the conversion for you. Works in any text field on any website: Gmail, Google Docs, social media, messaging apps, and more.
+
+How it works:
+1. Type Greeklish in any text field
+2. Press Ctrl+Shift+G (or your custom shortcut)
+3. Your text is instantly replaced with proper Greek
+
+Features:
+- Works on any website in any text field, textarea, or contenteditable element
+- Handles selected text or the entire field
+- Preserves English words, punctuation, emojis, and formatting
+- Keeps text that's already in Greek unchanged
+- Maintains the casual or formal tone of your original text
+- Customizable keyboard shortcut
+- Automatic clipboard fallback for compatibility with complex editors
+
+Setup:
+This extension requires your own Anthropic API key to function. You can get one at console.anthropic.com. The API key is stored locally in your browser and is never shared with third parties. Translation costs are minimal (fractions of a cent per request using Claude Haiku).
+
+Examples:
+- "kalimera, ti kaneis?" becomes "καλημέρα, τι κάνεις;"
+- "pame gia kafe?" becomes "πάμε για καφέ;"
+- "to meeting einai stis 3" becomes "το meeting είναι στις 3"
+
+Privacy:
+Your text is sent to the Anthropic API for translation and is not stored or logged by this extension. Your API key is stored locally in Chrome storage and never leaves your browser except for API authentication. No analytics, no tracking, no data collection.

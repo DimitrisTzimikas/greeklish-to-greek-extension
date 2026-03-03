@@ -1,0 +1,34 @@
+Chrome Web Store Permission Justifications
+==========================================
+
+Use these when filling out the Chrome Web Store submission form.
+Each permission has a "Justification" field you need to fill in during review.
+
+---
+
+Permission: storage
+Justification:
+The extension uses chrome.storage.local to save the user's Anthropic API key and their custom keyboard shortcut preference. These settings need to persist across browser sessions. No data is synced or shared externally.
+
+---
+
+Permission: clipboardWrite
+Justification:
+When the extension cannot directly insert translated text into a text field (e.g., in complex web editors like Google Docs or Notion), it copies the translated text to the user's clipboard as a fallback so they can paste it manually. This is only triggered by the user's explicit keyboard shortcut action.
+
+---
+
+Permission: offscreen
+Justification:
+Chrome Manifest V3 does not allow clipboard access from service workers. The offscreen document is used solely to write translated text to the clipboard when the direct text insertion fallback is needed. The offscreen document is created on demand and closed after use.
+
+---
+
+Host permission: <all_urls> (via content_scripts matches)
+Justification:
+The extension needs to run its content script on any webpage so users can translate Greeklish text in any text field they encounter, regardless of the website. The content script only activates when the user presses the translation keyboard shortcut. It reads only the text the user has selected or typed in the active text field, and replaces it with the Greek translation. No other page content is read, collected, or transmitted.
+
+---
+
+Remote code / external network requests:
+The extension makes HTTPS requests to api.anthropic.com to translate text using the Claude AI API. This is the core functionality of the extension. Requests are only made when the user explicitly triggers a translation. The user provides their own API key for authentication.
