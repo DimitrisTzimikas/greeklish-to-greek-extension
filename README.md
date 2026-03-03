@@ -14,8 +14,8 @@ A Chrome extension that instantly converts Greeklish (Greek written with Latin c
 
 | Greeklish | Greek |
 |-----------|-------|
-| kalimera, ti kaneis? | καλημέρα, τι κάνεις; |
-| pame gia kafe? | πάμε για καφέ; |
+| Geia sou, ti kaneis? | Γεια σου, τι κάνεις; |
+| Ithela na se rotiso an eisai eleutheri avrio | Ήθελα να σε ρωτήσω αν είσαι ελεύθερη αύριο |
 | to meeting einai stis 3 | το meeting είναι στις 3 |
 
 ## Features
