@@ -28,6 +28,9 @@ chrome.runtime.onMessage.addListener((msg) => {
   if (msg.action === "translate") {
     handleTranslation();
   }
+  if (msg.action === "status") {
+    showToast(msg.message, "loading");
+  }
 });
 
 async function handleTranslation() {

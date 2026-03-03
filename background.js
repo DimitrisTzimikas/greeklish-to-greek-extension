@@ -10,7 +10,8 @@ chrome.commands.onCommand.addListener((command) => {
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.action === "callApi") {
-    handleApiCall(msg.text)
+    const tabId = sender.tab?.id;
+    handleApiCall(msg.text, tabId)
       .then((result) => {
         copyToClipboard(result);
         return sendResponse({ success: true, text: result });
@@ -19,6 +20,12 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     return true;
   }
 });
+
+function sendStatus(tabId, message) {
+  if (tabId) {
+    chrome.tabs.sendMessage(tabId, { action: "status", message });
+  }
+}
 
 async function copyToClipboard(text) {
   try {
@@ -43,6 +50,11 @@ const MODELS = [
   "claude-haiku-4-5-20251001",
   "claude-3-5-haiku-20241022"
 ];
+
+const MODEL_LABELS = {
+  "claude-haiku-4-5-20251001": "Haiku 4.5",
+  "claude-3-5-haiku-20241022": "Haiku 3.5"
+};
 
 const PROMPT_PREFIX = `Convert the following Greeklish (Greek written with Latin characters) to proper Greek text. Rules:
 - Only output the translated Greek text, nothing else
@@ -72,7 +84,7 @@ async function callModel(apiKey, model, text) {
   return response;
 }
 
-async function handleApiCall(text) {
+async function handleApiCall(text, tabId) {
   const data = await chrome.storage.local.get("anthropicApiKey");
   const apiKey = data.anthropicApiKey;
   if (!apiKey) {
@@ -81,35 +93,45 @@ async function handleApiCall(text) {
 
   for (let m = 0; m < MODELS.length; m++) {
     const model = MODELS[m];
+    const label = MODEL_LABELS[model] || model;
     const isLastModel = m === MODELS.length - 1;
 
-    // Try each model with 1 retry
     for (let attempt = 0; attempt < 2; attempt++) {
       if (attempt > 0) {
+        sendStatus(tabId, `Retrying ${label}...`);
         await new Promise(r => setTimeout(r, 1000));
+      } else {
+        sendStatus(tabId, `Contacting Claude ${label}...`);
       }
 
-      const response = await callModel(apiKey, model, text);
+      let response;
+      try {
+        response = await callModel(apiKey, model, text);
+      } catch (e) {
+        if (isLastModel && attempt === 1) {
+          throw new Error("Network error. Check your connection.");
+        }
+        continue;
+      }
 
       if (response.ok) {
+        sendStatus(tabId, "Got response, converting...");
         const result = await response.json();
         return result.content[0].text;
       }
 
       if (response.status === 529 || response.status === 503) {
-        // Overloaded - retry same model or fall through to next model
         continue;
       }
 
-      // Non-overload error - throw immediately
       const err = await response.json().catch(() => ({}));
       throw new Error(err.error?.message || `API error ${response.status}`);
     }
 
     if (!isLastModel) {
-      console.log(`Model ${model} overloaded, falling back to ${MODELS[m + 1]}`);
+      sendStatus(tabId, `${label} overloaded, trying ${MODEL_LABELS[MODELS[m + 1]]}...`);
     }
   }
 
-  throw new Error("All models are overloaded. Please try again in a few seconds.");
+  throw new Error("All models are overloaded. Try again in a few seconds.");
 }
