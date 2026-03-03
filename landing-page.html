@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy - Greeklish to Greek</title>
+  <title>Greeklish to Greek - Chrome Extension</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -13,174 +13,371 @@
       background: #f5f5ff;
       min-height: 100vh;
     }
-    header {
+
+    /* Hero */
+    .hero {
       background: linear-gradient(135deg, #6366f1, #4f46e5);
-      padding: 48px 20px 40px;
+      padding: 60px 20px 80px;
       text-align: center;
       color: #fff;
     }
-    header .logo {
+    .hero .logo {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 16px;
-      text-decoration: none;
-      color: #fff;
+      margin-bottom: 24px;
     }
-    header .logo-icon {
-      width: 40px;
-      height: 40px;
+    .hero .logo-icon {
+      width: 56px;
+      height: 56px;
       background: rgba(255,255,255,0.2);
-      border-radius: 10px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 28px;
       font-weight: 700;
     }
-    header .logo-text {
-      font-size: 20px;
+    .hero .logo-text {
+      font-size: 24px;
       font-weight: 600;
     }
-    header h1 {
-      font-size: 32px;
+    .hero h1 {
+      font-size: 40px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
-    header p {
-      font-size: 15px;
-      opacity: 0.85;
+    .hero .tagline {
+      font-size: 19px;
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto 32px;
     }
-    main {
-      max-width: 720px;
-      margin: -24px auto 0;
-      padding: 0 20px 60px;
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: #4f46e5;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
-    .card {
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+      text-decoration: none;
+    }
+
+    /* Demo */
+    .demo {
+      max-width: 820px;
+      margin: -40px auto 0;
+      padding: 0 20px;
+    }
+    .demo-card {
       background: #fff;
       border-radius: 16px;
-      padding: 40px 36px;
+      padding: 0;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.1);
+      overflow: hidden;
+    }
+    .demo-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+    .demo-col {
+      padding: 32px 28px;
+    }
+    .demo-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .demo-label.input { color: #6366f1; }
+    .demo-label.output { color: #22c55e; }
+    .demo-text {
+      background: #f8f8ff;
+      border: 1px solid #e5e5ef;
+      border-radius: 10px;
+      padding: 18px 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1a1a2e;
+    }
+    .demo-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px;
+    }
+    .demo-arrow .circle {
+      width: 48px;
+      height: 48px;
+      background: #6366f1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .demo-arrow .circle svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+    .demo-arrow span {
+      font-size: 11px;
+      font-weight: 600;
+      color: #6366f1;
+    }
+    .shortcut-bar {
+      background: #f8f7ff;
+      border-top: 1px solid #ede9fe;
+      padding: 12px 28px;
+      text-align: center;
+      font-size: 14px;
+      color: #6366f1;
+    }
+    .shortcut-bar kbd {
+      background: #fff;
+      border: 1px solid #d4d0f8;
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 13px;
+      margin: 0 2px;
+    }
+
+    /* Features */
+    .features {
+      max-width: 820px;
+      margin: 48px auto 0;
+      padding: 0 20px;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: #1a1a2e;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.06);
+    }
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      background: #ede9fe;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .feature h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1a1a2e;
+    }
+    .feature p {
+      font-size: 14px;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    /* Setup */
+    .setup {
+      max-width: 820px;
+      margin: 48px auto 0;
+      padding: 0 20px;
+    }
+    .setup h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: #1a1a2e;
+    }
+    .steps {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 36px;
       box-shadow: 0 2px 12px rgba(99,102,241,0.08);
     }
-    h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #4f46e5;
-      margin-top: 32px;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 2px solid #ede9fe;
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
     }
-    h2:first-child { margin-top: 0; }
-    p { margin-bottom: 12px; font-size: 15px; color: #374151; }
-    ul {
-      padding-left: 0;
-      list-style: none;
-      margin-bottom: 12px;
+    .step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      background: #6366f1;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
     }
-    li {
-      position: relative;
-      padding-left: 24px;
-      margin-bottom: 8px;
+    .step-text {
+      padding-top: 4px;
       font-size: 15px;
       color: #374151;
     }
-    li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 8px;
-      height: 8px;
-      background: #6366f1;
-      border-radius: 50%;
-    }
-    strong { color: #1a1a2e; }
-    a { color: #6366f1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .highlight {
-      background: #f0fdf4;
-      border-left: 4px solid #22c55e;
-      padding: 14px 18px;
+    .step-text a { color: #6366f1; }
+    .note {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 12px 16px;
       border-radius: 0 8px 8px 0;
-      margin: 16px 0;
-      font-size: 15px;
-      color: #166534;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #92400e;
     }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 24px 20px;
+      padding: 40px 20px;
       font-size: 13px;
       color: #9ca3af;
     }
-    footer a { color: #6366f1; }
-    @media (max-width: 600px) {
-      header { padding: 32px 16px 28px; }
-      header h1 { font-size: 24px; }
-      .card { padding: 28px 20px; }
+    footer a { color: #6366f1; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .links { margin-top: 6px; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 28px; }
+      .hero .tagline { font-size: 16px; }
+      .demo-row { grid-template-columns: 1fr; }
+      .demo-arrow { flex-direction: row; padding: 12px 28px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .steps { padding: 24px 20px; }
     }
   </style>
 </head>
 <body>
-  <header>
+
+  <div class="hero">
     <div class="logo">
       <div class="logo-icon">&alpha;&beta;</div>
       <span class="logo-text">Greeklish to Greek</span>
     </div>
-    <h1>Privacy Policy</h1>
-    <p>Last updated: March 3, 2026</p>
-  </header>
+    <h1>Type Greeklish, get Greek</h1>
+    <p class="tagline">A Chrome extension that instantly converts Greeklish to proper Greek text, right where you type. Powered by Claude AI.</p>
+    <a class="cta-btn" href="https://chrome.google.com/webstore" target="_blank" rel="noopener">Install from Chrome Web Store</a>
+  </div>
 
-  <main>
-    <div class="card">
-
-      <h2>Overview</h2>
-      <p>Greeklish to Greek is a Chrome extension that converts Greek text written in Latin characters (Greeklish) to proper Greek. This policy explains what data the extension accesses and how it is handled.</p>
-
-      <div class="highlight">
-        This extension does <strong>not</strong> collect, store, or transmit any personal data. No analytics, no cookies, no tracking.
+  <div class="demo">
+    <div class="demo-card">
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="demo-label input">Greeklish</div>
+          <div class="demo-text">
+            Kalimera! To synedrio arxizei avrio stis 10 to proi.<br><br>
+            Tha ithela na kliso mia thesi gia to ergastirio Python.
+          </div>
+        </div>
+        <div class="demo-arrow">
+          <div class="circle">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+          </div>
+          <span>Claude AI</span>
+        </div>
+        <div class="demo-col">
+          <div class="demo-label output">Greek</div>
+          <div class="demo-text">
+            &#x039A;&#x03B1;&#x03BB;&#x03B7;&#x03BC;&#x03AD;&#x03C1;&#x03B1;! &#x03A4;&#x03BF; &#x03C3;&#x03C5;&#x03BD;&#x03AD;&#x03B4;&#x03C1;&#x03B9;&#x03BF; &#x03B1;&#x03C1;&#x03C7;&#x03AF;&#x03B6;&#x03B5;&#x03B9; &#x03B1;&#x03CD;&#x03C1;&#x03B9;&#x03BF; &#x03C3;&#x03C4;&#x03B9;&#x03C2; 10 &#x03C4;&#x03BF; &#x03C0;&#x03C1;&#x03C9;&#x03AF;.<br><br>
+            &#x0398;&#x03B1; &#x03AE;&#x03B8;&#x03B5;&#x03BB;&#x03B1; &#x03BD;&#x03B1; &#x03BA;&#x03BB;&#x03B5;&#x03AF;&#x03C3;&#x03C9; &#x03BC;&#x03B9;&#x03B1; &#x03B8;&#x03AD;&#x03C3;&#x03B7; &#x03B3;&#x03B9;&#x03B1; &#x03C4;&#x03BF; &#x03B5;&#x03C1;&#x03B3;&#x03B1;&#x03C3;&#x03C4;&#x03AE;&#x03C1;&#x03B9;&#x03BF; Python.
+          </div>
+        </div>
       </div>
-
-      <h2>Data Collection</h2>
-      <ul>
-        <li>No analytics or tracking of any kind</li>
-        <li>No cookies or user accounts</li>
-        <li>No browsing history access</li>
-        <li>No personal information collection</li>
-      </ul>
-
-      <h2>Data Processing</h2>
-      <p>When you trigger a translation, the following occurs:</p>
-      <ul>
-        <li><strong>Text you select or type</strong> in a text field is sent to the Anthropic API (api.anthropic.com) for translation. This happens only when you explicitly press the keyboard shortcut.</li>
-        <li><strong>Your Anthropic API key</strong> is stored locally in Chrome's extension storage on your device. It is sent to api.anthropic.com solely for authentication. It is never sent anywhere else.</li>
-      </ul>
-
-      <h2>Third-Party Services</h2>
-      <p>This extension uses the <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic API</a> to perform translations. Text you translate is processed by Anthropic according to their privacy policy and API terms of service.</p>
-
-      <h2>Permissions</h2>
-      <ul>
-        <li><strong>Storage</strong> &mdash; Saves your API key and shortcut preferences locally</li>
-        <li><strong>Clipboard Write</strong> &mdash; Copies translated text to clipboard as a fallback when direct insertion is not possible</li>
-        <li><strong>Offscreen</strong> &mdash; Required by Chrome Manifest V3 for clipboard access from the service worker</li>
-        <li><strong>All URLs</strong> &mdash; The content script runs on all pages so translation works in any text field. No page content is read beyond the text you select for translation.</li>
-      </ul>
-
-      <h2>Data Retention</h2>
-      <p>No data is retained by this extension. Translated text exists only in your browser. Your API key remains in local Chrome storage until you remove it or uninstall the extension.</p>
-
-      <h2>Changes to This Policy</h2>
-      <p>If this policy is updated, the changes will be reflected on this page with an updated date.</p>
-
-      <h2>Contact</h2>
-      <p>If you have questions about this privacy policy, please open an issue on the <a href="https://github.com/DimitrisTzimikas/greeklish-to-greek-extension" target="_blank" rel="noopener">GitHub repository</a>.</p>
-
+      <div class="shortcut-bar">
+        Just press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> in any text field
+      </div>
     </div>
-  </main>
+  </div>
+
+  <div class="features">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">&#x1F310;</div>
+        <h3>Works everywhere</h3>
+        <p>Any text field on any website. Gmail, Docs, social media, messaging apps, and more.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1F1EC;&#x1F1E7;</div>
+        <h3>Preserves English</h3>
+        <p>English words stay as-is. Mixed Greeklish and English? No problem.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x2328;&#xFE0F;</div>
+        <h3>Custom shortcuts</h3>
+        <p>Set your own keyboard shortcut or use the default Ctrl+Shift+G.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1F512;</div>
+        <h3>Private and secure</h3>
+        <p>No data collection, no tracking. Your API key stays on your device.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="setup">
+    <h2>Get started in 30 seconds</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Install the extension from the Chrome Web Store</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Get your API key from <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Click the extension icon, paste your key, and hit Save</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">Type Greeklish anywhere and press <kbd style="background:#f5f5ff;border:1px solid #d4d0f8;border-radius:4px;padding:2px 6px;font-family:monospace;font-size:13px;">Ctrl+Shift+G</kbd></div>
+      </div>
+      <div class="note">
+        Translation costs are minimal - fractions of a cent per request using Claude Haiku.
+      </div>
+    </div>
+  </div>
 
   <footer>
-    &copy; 2026 Greeklish to Greek &middot; <a href="https://github.com/DimitrisTzimikas/greeklish-to-greek-extension">GitHub</a>
+    <div>&copy; 2026 Greeklish to Greek</div>
+    <div class="links">
+      <a href="https://github.com/DimitrisTzimikas/greeklish-to-greek-extension">GitHub</a>
+      &middot;
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
   </footer>
+
 </body>
 </html>
