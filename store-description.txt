@@ -22,9 +22,9 @@ Setup:
 This extension requires your own Anthropic API key to function. You can get one at console.anthropic.com. The API key is stored locally in your browser and is never shared with third parties. Translation costs are minimal (fractions of a cent per request using Claude Haiku).
 
 Examples:
-- "kalimera, ti kaneis?" becomes "καλημέρα, τι κάνεις;"
-- "pame gia kafe?" becomes "πάμε για καφέ;"
-- "to meeting einai stis 3" becomes "το meeting είναι στις 3"
+- "Kalimera! To synedrio arxizei avrio" becomes "Καλημέρα! Το συνέδριο αρχίζει αύριο"
+- "Tha ithela na kliso mia thesi" becomes "Θα ήθελα να κλείσω μια θέση"
+- "to ergastirio Python arxizei stis 3" becomes "το εργαστήριο Python αρχίζει στις 3"
 
 Privacy:
 Your text is sent to the Anthropic API for translation and is not stored or logged by this extension. Your API key is stored locally in Chrome storage and never leaves your browser except for API authentication. No analytics, no tracking, no data collection.
