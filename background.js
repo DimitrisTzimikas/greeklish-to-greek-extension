@@ -48,12 +48,12 @@ async function copyToClipboard(text) {
 
 const MODELS = [
   "claude-haiku-4-5-20251001",
-  "claude-3-5-haiku-20241022"
+  "claude-3-5-haiku-latest"
 ];
 
 const MODEL_LABELS = {
   "claude-haiku-4-5-20251001": "Haiku 4.5",
-  "claude-3-5-haiku-20241022": "Haiku 3.5"
+  "claude-3-5-haiku-latest": "Haiku 3.5"
 };
 
 const PROMPT_PREFIX = `Convert the following Greeklish (Greek written with Latin characters) to proper Greek text. Rules:
@@ -120,12 +120,19 @@ async function handleApiCall(text, tabId) {
         return result.content[0].text;
       }
 
-      if (response.status === 529 || response.status === 503) {
+      const isOverloaded = response.status === 529 || response.status === 503;
+      if (isOverloaded) {
         continue;
       }
 
+      // Non-overload error: try next model if available, otherwise throw
       const err = await response.json().catch(() => ({}));
-      throw new Error(err.error?.message || `API error ${response.status}`);
+      const errMsg = err.error?.message || `API error ${response.status}`;
+      if (!isLastModel) {
+        console.warn(`${label} error: ${errMsg}, trying next model`);
+        break;
+      }
+      throw new Error(errMsg);
     }
 
     if (!isLastModel) {

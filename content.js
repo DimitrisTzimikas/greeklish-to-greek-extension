@@ -120,7 +120,11 @@ async function handleTranslation() {
     }
   } catch (err) {
     console.error("Greeklish translation error:", err);
-    showToast("Translation failed: " + err.message, "error");
+    let msg = err.message;
+    if (msg.startsWith("model:")) {
+      msg = "Model unavailable. Try again shortly.";
+    }
+    showToast("Failed: " + msg, "error", 4000);
   }
 }
 
