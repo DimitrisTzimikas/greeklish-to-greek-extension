@@ -64,23 +64,19 @@ def browser_chrome(draw, x, y, w, url_text):
     draw.text((ub + 10, y + 12), url_text, font=f_small, fill=GRAY)
 
 
-def compose_box(draw, x, y, w, h, subject_text, lines, outline_color=(210, 210, 220)):
+def text_box(draw, x, y, w, h, lines, outline_color=(210, 210, 220)):
     draw.rounded_rectangle((x, y, x + w, y + h), 10, fill=LIGHT_BG, outline=outline_color)
-    draw.text((x + 16, y + 12), "To:", font=f_small, fill=GRAY)
-    draw.text((x + 46, y + 12), "maria@example.com", font=f_small, fill=DARK)
-    draw.line((x + 10, y + 34, x + w - 10, y + 34), fill=(220, 220, 230))
-    draw.text((x + 16, y + 44), "Subject:", font=f_small, fill=GRAY)
-    draw.text((x + 80, y + 44), subject_text, font=f_small, fill=DARK)
-    draw.line((x + 10, y + 66, x + w - 10, y + 66), fill=(220, 220, 230))
-    ty = y + 80
+    # Blinking cursor line at top
+    draw.line((x + 16, y + 16, x + 16, y + 32), fill=ACCENT, width=2)
+    ty = y + 18
     for line in lines:
-        draw.text((x + 16, ty), line, font=f_body, fill=DARK)
-        ty += 23
+        draw.text((x + 24, ty), line, font=f_body, fill=DARK)
+        ty += 26
 
 
 # ==================== LEFT PANEL (BEFORE) ====================
 draw.rounded_rectangle((left_x, panel_y, left_x + panel_w, panel_y + panel_h), 16, fill=WHITE)
-browser_chrome(draw, left_x, panel_y, panel_w, "mail.google.com")
+browser_chrome(draw, left_x, panel_y, panel_w, "any-website.com")
 
 draw.text((left_x + 20, panel_y + 56), "GREEKLISH INPUT", font=f_label, fill=ACCENT)
 
@@ -90,18 +86,16 @@ greeklish = [
     "Ti kaneis? Ithela na se rotiso",
     "an eisai eleutheri avrio to",
     "mesimeri gia ena kafe.",
-    "",
-    "Perimeno apantisi sou!",
 ]
-compose_box(draw, left_x + 18, panel_y + 82, panel_w - 36, 230, "Synantisi avrio", greeklish)
+text_box(draw, left_x + 18, panel_y + 82, panel_w - 36, 200, greeklish)
 
 # Keyboard shortcut badge
-sy = panel_y + 330
+sy = panel_y + 300
 draw.rounded_rectangle((left_x + 110, sy, left_x + panel_w - 110, sy + 34), 8, fill=(237, 237, 255), outline=ACCENT, width=1)
 draw.text((left_x + panel_w // 2, sy + 8), "Press  Ctrl + Shift + G", font=f_mono, fill=ACCENT, anchor="mt")
 
 # Mini popup preview
-py = panel_y + 385
+py = panel_y + 355
 pw = 210
 draw.rounded_rectangle((left_x + 18, py, left_x + 18 + pw, py + 130), 10, fill=WHITE, outline=(215, 215, 225))
 
@@ -130,7 +124,7 @@ draw.text((ax, ay + 42), "Claude AI", font=f_arrow, fill=WHITE, anchor="mt")
 
 # ==================== RIGHT PANEL (AFTER) ====================
 draw.rounded_rectangle((right_x, panel_y, right_x + right_w, panel_y + panel_h), 16, fill=WHITE)
-browser_chrome(draw, right_x, panel_y, right_w, "mail.google.com")
+browser_chrome(draw, right_x, panel_y, right_w, "any-website.com")
 
 draw.text((right_x + 20, panel_y + 56), "GREEK OUTPUT", font=f_label, fill=GREEN)
 
@@ -140,21 +134,18 @@ greek = [
     "\u03a4\u03b9 \u03ba\u03ac\u03bd\u03b5\u03b9\u03c2; \u0389\u03b8\u03b5\u03bb\u03b1 \u03bd\u03b1 \u03c3\u03b5 \u03c1\u03c9\u03c4\u03ae\u03c3\u03c9",
     "\u03b1\u03bd \u03b5\u03af\u03c3\u03b1\u03b9 \u03b5\u03bb\u03b5\u03cd\u03b8\u03b5\u03c1\u03b7 \u03b1\u03cd\u03c1\u03b9\u03bf \u03c4\u03bf",
     "\u03bc\u03b5\u03c3\u03b7\u03bc\u03ad\u03c1\u03b9 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03ba\u03b1\u03c6\u03ad.",
-    "",
-    "\u03a0\u03b5\u03c1\u03b9\u03bc\u03ad\u03bd\u03c9 \u03b1\u03c0\u03ac\u03bd\u03c4\u03b7\u03c3\u03ae \u03c3\u03bf\u03c5!",
 ]
-compose_box(draw, right_x + 18, panel_y + 82, right_w - 36, 230,
-            "\u03a3\u03c5\u03bd\u03ac\u03bd\u03c4\u03b7\u03c3\u03b7 \u03b1\u03cd\u03c1\u03b9\u03bf", greek)
+text_box(draw, right_x + 18, panel_y + 82, right_w - 36, 200, greek)
 
 # Toast
-ty = panel_y + 330
+ty = panel_y + 300
 tw = 170
 tx = right_x + (right_w - tw) // 2
 draw.rounded_rectangle((tx, ty, tx + tw, ty + 32), 8, fill=GREEN)
 draw.text((tx + tw // 2, ty + 7), "Translated!", font=f_toast, fill=WHITE, anchor="mt")
 
 # Features list
-fy = panel_y + 385
+fy = panel_y + 355
 features = [
     "Works on any website",
     "Preserves English words",
