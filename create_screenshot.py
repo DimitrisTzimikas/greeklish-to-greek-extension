@@ -81,11 +81,11 @@ browser_chrome(draw, left_x, panel_y, panel_w, "any-website.com")
 draw.text((left_x + 20, panel_y + 56), "GREEKLISH INPUT", font=f_label, fill=ACCENT)
 
 greeklish = [
-    "Geia sou Maria,",
+    "Kalimera! To synedrio arxizei",
+    "avrio stis 10 to proi.",
     "",
-    "Ti kaneis? Ithela na se rotiso",
-    "an eisai eleutheri avrio to",
-    "mesimeri gia ena kafe.",
+    "Tha ithela na kliso mia thesi",
+    "gia to ergastirio Python.",
 ]
 text_box(draw, left_x + 18, panel_y + 82, panel_w - 36, 200, greeklish)
 
@@ -129,11 +129,11 @@ browser_chrome(draw, right_x, panel_y, right_w, "any-website.com")
 draw.text((right_x + 20, panel_y + 56), "GREEK OUTPUT", font=f_label, fill=GREEN)
 
 greek = [
-    "\u0393\u03b5\u03b9\u03b1 \u03c3\u03bf\u03c5 \u039c\u03b1\u03c1\u03af\u03b1,",
+    "\u039a\u03b1\u03bb\u03b7\u03bc\u03ad\u03c1\u03b1! \u03a4\u03bf \u03c3\u03c5\u03bd\u03ad\u03b4\u03c1\u03b9\u03bf \u03b1\u03c1\u03c7\u03af\u03b6\u03b5\u03b9",
+    "\u03b1\u03cd\u03c1\u03b9\u03bf \u03c3\u03c4\u03b9\u03c2 10 \u03c4\u03bf \u03c0\u03c1\u03c9\u03af.",
     "",
-    "\u03a4\u03b9 \u03ba\u03ac\u03bd\u03b5\u03b9\u03c2; \u0389\u03b8\u03b5\u03bb\u03b1 \u03bd\u03b1 \u03c3\u03b5 \u03c1\u03c9\u03c4\u03ae\u03c3\u03c9",
-    "\u03b1\u03bd \u03b5\u03af\u03c3\u03b1\u03b9 \u03b5\u03bb\u03b5\u03cd\u03b8\u03b5\u03c1\u03b7 \u03b1\u03cd\u03c1\u03b9\u03bf \u03c4\u03bf",
-    "\u03bc\u03b5\u03c3\u03b7\u03bc\u03ad\u03c1\u03b9 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03ba\u03b1\u03c6\u03ad.",
+    "\u0398\u03b1 \u03ae\u03b8\u03b5\u03bb\u03b1 \u03bd\u03b1 \u03ba\u03bb\u03b5\u03af\u03c3\u03c9 \u03bc\u03b9\u03b1 \u03b8\u03ad\u03c3\u03b7",
+    "\u03b3\u03b9\u03b1 \u03c4\u03bf \u03b5\u03c1\u03b3\u03b1\u03c3\u03c4\u03ae\u03c1\u03b9\u03bf Python.",
 ]
 text_box(draw, right_x + 18, panel_y + 82, right_w - 36, 200, greek)
 
