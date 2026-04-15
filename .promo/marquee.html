@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1400px; height: 560px; overflow: hidden; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 60%, #3730a3 100%);
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+    top: -200px;
+    right: -200px;
+  }
+  .left {
+    position: relative;
+    z-index: 2;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+  }
+  .logo-text {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  p {
+    font-size: 20px;
+    opacity: 0.92;
+    line-height: 1.5;
+    max-width: 520px;
+    margin-bottom: 24px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.18);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  kbd {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-family: "SF Mono", monospace;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .right {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .demo-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    color: #1a1a2e;
+  }
+  .demo-card.tilt-l { transform: rotate(-2deg); }
+  .demo-card.tilt-r { transform: rotate(2deg); margin-left: 30px; }
+  .demo-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 8px;
+  }
+  .demo-label.out { color: #22c55e; }
+  .demo-text {
+    font-size: 17px;
+    line-height: 1.4;
+    color: #1a1a2e;
+  }
+  .demo-arrow {
+    width: 36px;
+    height: 36px;
+    background: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff;
+    margin: -8px auto;
+    box-shadow: 0 4px 12px rgba(99,102,241,0.4);
+    position: relative;
+    z-index: 3;
+  }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="logo">
+      <div class="logo-icon">αβ</div>
+      <span class="logo-text">Greeklish to Greek</span>
+    </div>
+    <h1>Type Greeklish,<br>get Greek</h1>
+    <p>An instant Greeklish-to-Greek converter that works in any text field on any website. Powered by Claude AI.</p>
+    <div class="badge">Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> anywhere</div>
+  </div>
+  <div class="right">
+    <div class="demo-card tilt-l">
+      <div class="demo-label">Greeklish</div>
+      <div class="demo-text">Kalimera! To synedrio arxizei avrio stis 10.</div>
+    </div>
+    <div class="demo-arrow">↓</div>
+    <div class="demo-card tilt-r">
+      <div class="demo-label out">Greek</div>
+      <div class="demo-text">Καλημέρα! Το συνέδριο αρχίζει αύριο στις 10.</div>
+    </div>
+  </div>
+</body>
+</html>
